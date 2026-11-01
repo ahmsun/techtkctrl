@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+<title>Tech TK CTRL | Web & App Development</title>
+<meta name="description" content="Tech TK CTRL builds modern websites, Android apps, e-commerce stores and digital solutions for businesses and creators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b18;--panel:#10162a;--panel2:#141d36;--text:#f5f7ff;--muted:#a8b1c9;--cyan:#43e7ff;--purple:#9b7bff;--pink:#ff6db4;--line:rgba(255,255,255,.1);--grad:linear-gradient(110deg,#43e7ff,#9b7bff 55%,#ff6db4)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 12% 10%,rgba(67,231,255,.12),transparent 28%),radial-gradient(circle at 85% 25%,rgba(155,123,255,.14),transparent 30%),radial-gradient(circle at 50% 90%,rgba(255,109,180,.08),transparent 30%)}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1160px,92%);margin:auto}
+header{position:fixed;z-index:20;top:0;width:100%;background:rgba(8,11,24,.72);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{border-color:var(--line);background:rgba(8,11,24,.92)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 1.35rem 'Space Grotesk';letter-spacing:-1px}.logo span{background:var(--grad);background-clip:text;color:transparent}
+.logo small{display:block;font:600 .55rem 'DM Sans';letter-spacing:4px;color:var(--muted);margin-top:-2px}
+.links{display:flex;gap:30px;align-items:center;color:#c7cee0;font-size:.9rem}
+.links a{transition:.25s}.links a:hover{color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 21px;border-radius:12px;background:var(--grad);color:#07101c;font-weight:800;border:0;cursor:pointer;box-shadow:0 8px 30px rgba(67,231,255,.13);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 14px 38px rgba(155,123,255,.25)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--text);box-shadow:none}
+.menu{display:none;background:none;color:white;border:0;font-size:1.6rem}
+.hero{min-height:100vh;display:grid;align-items:center;padding:130px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(67,231,255,.25);background:rgba(67,231,255,.07);color:var(--cyan);padding:8px 13px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.dot{height:7px;width:7px;background:#51f0bb;border-radius:50%;box-shadow:0 0 12px #51f0bb}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+h1{font-size:clamp(3rem,6.5vw,5.6rem);line-height:1.02;letter-spacing:-4px;margin:24px 0}
+.gradient{background:var(--grad);background-clip:text;color:transparent}
+.hero p{max-width:570px;color:var(--muted);font-size:1.08rem;line-height:1.8}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:42px;color:var(--muted);font-size:.85rem}
+.trust b{color:white;font-size:1.2rem;display:block}
+.visual{position:relative;min-height:480px;display:grid;place-items:center}
+.orbit{position:absolute;width:390px;height:390px;border:1px solid rgba(155,123,255,.28);border-radius:50%;animation:spin 22s linear infinite}
+.orbit:before,.orbit:after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 25px var(--cyan);top:45px;left:45px}
+.orbit:after{background:var(--pink);box-shadow:0 0 25px var(--pink);top:auto;left:auto;bottom:55px;right:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.code-card{position:relative;width:min(420px,95%);padding:25px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:linear-gradient(145deg,rgba(24,34,62,.96),rgba(12,17,34,.96));box-shadow:0 30px 90px rgba(0,0,0,.45);transform:rotate(-3deg);animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-13px) rotate(0deg)}}
+.card-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.8rem}
+.pips{display:flex;gap:6px}.pips i{height:8px;width:8px;border-radius:50%;background:#ff6d8d}.pips i:nth-child(2){background:#ffc66d}.pips i:nth-child(3){background:#5be4a8}
+.code-lines{padding:25px 0 12px;font:500 .9rem/2 'Space Grotesk';color:#c7d2ef}
+.code-lines .blue{color:var(--cyan)}.code-lines .pink{color:var(--pink)}.code-lines .purple{color:var(--purple)}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.mini-stats div{padding:12px;background:rgba(255,255,255,.05);border-radius:10px}.mini-stats b{display:block;font-size:1rem}.mini-stats span{font-size:.65rem;color:var(--muted)}
+.float-tag{position:absolute;padding:12px 16px;border-radius:12px;background:#151f3a;border:1px solid var(--line);box-shadow:0 12px 30px #0005;font-size:.8rem;font-weight:700}
+.tag-one{top:55px;right:0}.tag-two{bottom:55px;left:0}
+section{padding:105px 0}
+.section-head{text-align:center;max-width:700px;margin:0 auto 52px}
+.kicker{color:var(--cyan);font-weight:800;font-size:.75rem;letter-spacing:2px;text-transform:uppercase}
+.section-head h2{font-size:clamp(2.1rem,4vw,3.3rem);letter-spacing:-2px;margin:13px 0}
+.section-head p{color:var(--muted);line-height:1.8}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service,.price-card,.work-card,.process-card{background:linear-gradient(145deg,rgba(20,29,54,.92),rgba(12,17,34,.9));border:1px solid var(--line);border-radius:19px;transition:.35s}
+.service{padding:27px;position:relative;overflow:hidden}
+.service:before{content:"";position:absolute;width:120px;height:120px;background:rgba(67,231,255,.1);filter:blur(35px);right:-50px;top:-50px;transition:.3s}
+.service:hover,.price-card:hover,.work-card:hover,.process-card:hover{transform:translateY(-8px);border-color:rgba(67,231,255,.45);box-shadow:0 20px 50px rgba(0,0,0,.22)}
+.service-icon{height:48px;width:48px;border-radius:14px;display:grid;place-items:center;background:rgba(67,231,255,.1);color:var(--cyan);font-size:1.5rem;margin-bottom:22px}
+.service h3{font-size:1.18rem;margin-bottom:10px}.service p{font-size:.9rem;color:var(--muted);line-height:1.7}
+.service ul{list-style:none;margin-top:17px;color:#c9d2e7;font-size:.82rem;line-height:2}
+.service li:before{content:"✦";color:var(--cyan);margin-right:9px}
+.pricing{background:linear-gradient(180deg,transparent,rgba(18,25,48,.55),transparent)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.price-card{padding:28px;position:relative}
+.price-card.featured{border-color:rgba(155,123,255,.7);background:linear-gradient(145deg,rgba(39,36,79,.9),rgba(14,19,39,.95));box-shadow:0 0 45px rgba(155,123,255,.1)}
+.popular{position:absolute;top:17px;right:17px;font-size:.65rem;letter-spacing:1px;background:var(--grad);color:#07101c;padding:6px 9px;border-radius:20px;font-weight:900}
+.price-card h3{font-size:1.2rem}.price-card .desc{color:var(--muted);font-size:.85rem;margin:9px 0 20px;min-height:40px}
+.price{font:700 2.2rem 'Space Grotesk';margin-bottom:4px}.price small{font:500 .75rem 'DM Sans';color:var(--muted)}
+.price-card ul{list-style:none;border-top:1px solid var(--line);margin:20px 0;padding-top:17px;color:#cbd4e9;font-size:.86rem;line-height:2.2}
+.price-card li:before{content:"✓";color:#51e6bd;margin-right:10px;font-weight:900}
+.price-card .btn{width:100%;margin-top:6px}
+.note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:24px}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.work-card{overflow:hidden}
+.work-art{height:190px;display:grid;place-items:center;font:700 2rem 'Space Grotesk';letter-spacing:-2px;position:relative;overflow:hidden}
+.work-art:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff38;border-radius:50%;box-shadow:0 0 0 25px #ffffff09,0 0 0 55px #ffffff06}
+.work-art span{z-index:1;text-shadow:0 6px 30px #0008}
+.art1{background:linear-gradient(135deg,#0e9e9a,#16366c)}.art2{background:linear-gradient(135deg,#783df2,#e64e9d)}.art3{background:linear-gradient(135deg,#e58b2d,#8f2d5c)}
+.work-info{padding:21px}.work-info h3{font-size:1.1rem;margin-bottom:7px}.work-info p{color:var(--muted);font-size:.84rem;line-height:1.6}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.process-card{padding:22px}.number{font:700 2rem 'Space Grotesk';background:var(--grad);background-clip:text;color:transparent}.process-card h3{margin:12px 0 8px;font-size:1rem}.process-card p{color:var(--muted);font-size:.83rem;line-height:1.7}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.about-visual{min-height:350px;border-radius:24px;background:linear-gradient(145deg,rgba(67,231,255,.13),rgba(155,123,255,.12));border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
+.about-visual strong{font:700 clamp(3rem,7vw,5.5rem) 'Space Grotesk';letter-spacing:-5px;text-align:center;z-index:1}
+.about-visual:before,.about-visual:after{content:"";position:absolute;width:250px;height:250px;border:1px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 30px #ffffff08,0 0 0 60px #ffffff05}
+.about-copy h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-2px;margin:13px 0 18px}.about-copy p{color:var(--muted);line-height:1.85;margin-bottom:15px}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.pills span{padding:8px 12px;border:1px solid var(--line);border-radius:30px;color:#d5def3;font-size:.78rem}
+.contact-box{padding:55px;border-radius:25px;border:1px solid rgba(67,231,255,.2);background:radial-gradient(circle at 90% 10%,rgba(155,123,255,.2),transparent 35%),linear-gradient(135deg,#111a33,#101226);text-align:center}
+.contact-box h2{font-size:clamp(2rem,4vw,3.4rem);letter-spacing:-2px;margin:14px 0}
+.contact-box p{color:var(--muted);max-width:620px;margin:0 auto;line-height:1.8}
+.contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:27px}
+.contact-details{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px;color:#cbd4e9;font-size:.9rem}
+.contact-details a:hover{color:var(--cyan)}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.socials{display:flex;gap:17px}.socials a:hover{color:var(--cyan)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding-top:125px}.visual{min-height:420px}.services,.price-grid,.work-grid{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.hero-copy{text-align:center}.hero-copy p{margin:auto}.hero-actions,.trust{justify-content:center}}
+@media(max-width:620px){.links{display:none;position:absolute;top:76px;left:0;width:100%;padding:22px 5%;background:#0c1124;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:20px}.links.open{display:flex}.nav>.btn{display:none}.menu{display:block}.hero{min-height:auto;padding:125px 0 55px}h1{letter-spacing:-2.5px}.visual{min-height:360px}.orbit{width:290px;height:290px}.float-tag{font-size:.68rem}.tag-one{right:-4px;top:28px}.tag-two{left:-4px;bottom:25px}.services,.price-grid,.work-grid,.process{grid-template-columns:1fr}section{padding:75px 0}.section-head{margin-bottom:35px}.contact-box{padding:35px 20px}.contact-details{flex-direction:column;gap:13px}.footer-row{justify-content:center;text-align:center}}
+</style>
+</head>
+<body>
+<header id="header"><div class="wrap nav">
+<a class="logo" href="#home">TECH <span>TK CTRL</span><small>BUILD • CREATE • GROW</small></a>
+<nav class="links" id="navLinks"><a href="#home">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#work">Our Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<a class="btn" href="#contact">Let's Talk ↗</a><button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div class="hero-copy reveal">
+<div class="eyebrow"><i class="dot"></i> Digital solutions for your next big idea</div>
+<h1>We Build Your<br><span class="gradient">Digital Future.</span></h1>
+<p>From stunning websites to powerful Android apps, Tech TK CTRL turns your ideas into digital experiences that help your business stand out and grow.</p>
+<div class="hero-actions"><a class="btn" href="#contact">Start Your Project ↗</a><a class="btn ghost" href="#services">Explore Services ↓</a></div>
+<div class="trust"><div><b>Web</b>Development</div><div><b>Android</b>Applications</div><div><b>Creative</b>Digital Solutions</div></div>
+</div>
+<div class="visual reveal"><div class="orbit"></div><div class="code-card">
+<div class="card-top"><span>✦ TECH_TK_CTRL / project</span><span class="pips"><i></i><i></i><i></i></span></div>
+<div class="code-lines"><div><span class="purple">const</span> <span class="blue">future</span> = {</div><div>&nbsp;&nbsp;design: <span class="pink">"creative"</span>,</div><div>&nbsp;&nbsp;technology: <span class="pink">"powerful"</span>,</div><div>&nbsp;&nbsp;experience: <span class="pink">"seamless"</span></div><div>};</div><div class="blue">// Your idea, brought to life.</div></div>
+<div class="mini-stats"><div><b>01</b><span>Plan</span></div><div><b>02</b><span>Build</span></div><div><b>03</b><span>Launch</span></div></div>
+</div><div class="float-tag tag-one">✦ Modern UI / UX</div><div class="float-tag tag-two">⚡ Fast & Responsive</div></div>
+</div></section>
+<section id="services"><div class="wrap"><div class="section-head reveal"><div class="kicker">What we do</div><h2>Services That Move<br><span class="gradient">Your Business Forward</span></h2><p>Everything you need to establish, improve and grow your digital presence — all in one place.</p></div>
+<div class="services">
+<article class="service reveal"><div class="service-icon">⌘</div><h3>Website Development</h3><p>Beautiful, responsive and fast websites designed to turn visitors into customers.</p><ul><li>Business & company websites</li><li>Portfolio & personal websites</li><li>Landing pages</li><li>Educational websites</li></ul></article>
+<article class="service reveal"><div class="service-icon">▣</div><h3>Android App Development</h3><p>Useful, smooth and user-friendly Android applications for your ideas and business.</p><ul><li>Business & service apps</li><li>E-commerce applications</li><li>Booking & utility apps</li><li>Custom app solutions</li></ul></article>
+<article class="service reveal"><div class="service-icon">🛒</div><h3>E-commerce Solutions</h3><p>Take your store online with product listings, carts, orders and customer-friendly design.</p><ul><li>Online shopping websites</li><li>Product & category setup</li><li>Order management</li><li>Payment integration support</li></ul></article>
+<article class="service reveal"><div class="service-icon">✧</div><h3>UI / UX & Web Design</h3><p>Modern layouts, clean interfaces and memorable visual experiences for your brand.</p><ul><li>Modern website redesign</li><li>Mobile-first layouts</li><li>Brand-focused design</li><li>Interactive animations</li></ul></article>
+<article class="service reveal"><div class="service-icon">⚙</div><h3>Custom Software & Tools</h3><p>Digital tools that simplify your everyday work and make your process more efficient.</p><ul><li>Admin dashboards</li><li>Management systems</li><li>Forms & portals</li><li>Custom web applications</li></ul></article>
+<article class="service reveal"><div class="service-icon">↗</div><h3>Maintenance & Support</h3><p>Keep your digital product updated, secure and working smoothly after launch.</p><ul><li>Website updates</li><li>Bug fixes & improvements</li><li>Content updates</li><li>Technical assistance</li></ul></article>
+</div></div></section>
+<section class="pricing" id="pricing"><div class="wrap"><div class="section-head reveal"><div class="kicker">Simple pricing</div><h2>Choose Your <span class="gradient">Starting Package</span></h2><p>Transparent starting prices to help you plan. Final cost depends on features, pages, integrations and project requirements.</p></div>
+<div class="price-grid">
+<article class="price-card reveal"><h3>Starter Website</h3><p class="desc">A clean online presence for individuals and small businesses.</p><div class="price">₹2,999 <small>/ starting</small></div><ul><li>One-page responsive website</li><li>Modern design</li><li>Contact section</li><li>Mobile-friendly layout</li><li>Basic SEO setup</li></ul><a class="btn ghost quote" data-plan="Starter Website" href="#contact">Get This Package ↗</a></article>
+<article class="price-card featured reveal"><span class="popular">POPULAR</span><h3>Business Website</h3><p class="desc">A complete website to present your business and services.</p><div class="price">₹4,999 <small>/ starting</small></div><ul><li>Up to 5 pages</li><li>Custom modern UI</li><li>Contact / WhatsApp links</li><li>Responsive design</li><li>Basic SEO setup</li></ul><a class="btn quote" data-plan="Business Website" href="#contact">Get This Package ↗</a></article>
+<article class="price-card reveal"><h3>E-commerce Website</h3><p class="desc">Bring your products online and receive customer orders.</p><div class="price">₹7,999 <small>/ starting</small></div><ul><li>Product catalogue</li><li>Cart & order flow</li><li>Admin features as scoped</li><li>Mobile-friendly design</li><li>Payment integration quoted separately</li></ul><a class="btn ghost quote" data-plan="E-commerce Website" href="#contact">Get This Package ↗</a></article>
+<article class="price-card reveal"><h3>Portfolio Website</h3><p class="desc">Showcase your skills, work and professional profile.</p><div class="price">₹2,499 <small>/ starting</small></div><ul><li>Personal brand design</li><li>Projects / work showcase</li><li>Social media links</li><li>Responsive layout</li></ul><a class="btn ghost quote" data-plan="Portfolio Website" href="#contact">Get This Package ↗</a></article>
+<article class="price-card reveal"><h3>Android App</h3><p class="desc">A basic Android app for a simple business or utility idea.</p><div class="price">₹9,999 <small>/ starting</small></div><ul><li>Custom app UI</li><li>Core screens & navigation</li><li>Basic app functionality</li><li>Testing support</li><li>Publishing fees not included</li></ul><a class="btn ghost quote" data-plan="Android App" href="#contact">Get This Package ↗</a></article>
+<article class="price-card reveal"><h3>Custom Business App</h3><p class="desc">A tailored app with features planned around your workflow.</p><div class="price">₹14,999 <small>/ starting</small></div><ul><li>Custom app features</li><li>Business-focused UI</li><li>Backend quoted by scope</li><li>Testing & support</li><li>Advanced features quoted separately</li></ul><a class="btn ghost quote" data-plan="Custom Business App" href="#contact">Get This Package ↗</a></article>
+</div><p class="note">*All prices are indicative starting prices in INR. Domain, hosting, third-party services, Play Store fees and advanced features may cost extra.</p>
+</div></section>
+<section id="work"><div class="wrap"><div class="section-head reveal"><div class="kicker">Our capabilities</div><h2>Ideas Into <span class="gradient">Digital Experiences</span></h2><p>A glimpse of the kinds of projects we can create. Add your live project links and screenshots here as your portfolio grows.</p></div>
+<div class="work-grid">
+<article class="work-card reveal"><div class="work-art art1"><span>BUSINESS<br>WEBSITE</span></div><div class="work-info"><h3>Business & Company Websites</h3><p>Professional websites that explain your services, build trust and bring in enquiries.</p></div></article>
+<article class="work-card reveal"><div class="work-art art2"><span>CREATOR<br>PORTFOLIO</span></div><div class="work-info"><h3>Creator & Personal Portfolios</h3><p>Showcase social channels, creative work, achievements and contact details.</p></div></article>
+<article class="work-card reveal"><div class="work-art art3"><span>ONLINE<br>STORE</span></div><div class="work-info"><h3>E-commerce & Ordering</h3><p>Product displays and convenient order journeys for online stores and local shops.</p></div></article>
+</div></div></section>
+<section><div class="wrap"><div class="section-head reveal"><div class="kicker">How it works</div><h2>From First Chat to <span class="gradient">Final Launch</span></h2><p>A clear process keeps your project organised at every step.</p></div>
+<div class="process"><article class="process-card reveal"><div class="number">01</div><h3>Discuss</h3><p>Tell us your idea, goals, budget and required features.</p></article><article class="process-card reveal"><div class="number">02</div><h3>Plan & Design</h3><p>We prepare the project structure and visual direction.</p></article><article class="process-card reveal"><div class="number">03</div><h3>Develop</h3><p>We build, test and refine your website or application.</p></article><article class="process-card reveal"><div class="number">04</div><h3>Launch</h3><p>After approval, we help you get your project ready to go live.</p></article></div>
+</div></section>
+<section id="about"><div class="wrap about-grid"><div class="about-visual reveal"><strong>TECH<br><span class="gradient">TK CTRL</span></strong></div><div class="about-copy reveal"><div class="kicker">Who we are</div><h2>Technology Meets <span class="gradient">Creativity.</span></h2><p>Tech TK CTRL is a web and app development service focused on turning ideas into practical digital products. Whether you are a startup, shop owner, institute, creator or growing business, we aim to deliver a modern experience that fits your needs.</p><p>We believe good digital products should look great, work smoothly and make things easier for the people who use them.</p><div class="pills"><span>Web Development</span><span>Android Apps</span><span>Creative Design</span><span>Digital Solutions</span><span>Responsive UI</span></div></div></div></section>
+<section id="contact"><div class="wrap"><div class="contact-box reveal"><div class="kicker">Have an idea?</div><h2>Let's Build Something <span class="gradient">Amazing.</span></h2><p>Share your project idea with us. Tell us what you want to build, and we'll discuss the best solution and estimated cost.</p><div class="contact-actions"><a class="btn" id="waMain" href="https://wa.me/919309455867" target="_blank" rel="noopener">Chat on WhatsApp ↗</a><a class="btn ghost" href="mailto:animetkctrl@gmail.com?subject=Project%20Enquiry">Send an Email ↗</a></div><div class="contact-details"><a href="tel:+919309455867">☎ +91 93094 55867</a><a href="mailto:animetkctrl@gmail.com">✉ animetkctrl@gmail.com</a><a href="https://instagram.com/tech_tk_ctrl" target="_blank" rel="noopener">◎ @tech_tk_ctrl</a><a href="https://www.facebook.com/search/pages/?q=tech%20tk%20ctrl" target="_blank" rel="noopener">f Tech TK CTRL</a></div></div></div></section>
+</main>
+<footer><div class="wrap footer-row"><a class="logo" href="#home">TECH <span>TK CTRL</span><small>BUILD • CREATE • GROW</small></a><div>© <span id="year"></span> Tech TK CTRL. All rights reserved.</div><div class="socials"><a href="https://instagram.com/tech_tk_ctrl" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/search/pages/?q=tech%20tk%20ctrl" target="_blank" rel="noopener">Facebook</a><a href="mailto:animetkctrl@gmail.com">Email</a></div></div></footer>
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>25));
+const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.quote').forEach(link=>link.addEventListener('click',()=>{
+ const plan=link.dataset.plan;
+ const message=`Hi Tech TK CTRL! I am interested in the ${plan} package. Please share more details and the final quotation.`;
+ document.getElementById('waMain').href='https://wa.me/919309455867?text='+encodeURIComponent(message);
+}));
+</script>
+</body>
+</html>
